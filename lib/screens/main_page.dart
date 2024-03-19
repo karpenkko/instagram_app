@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_app/posts.dart';
-import 'package:instagram_app/story_avatars.dart';
+import 'package:instagram_app/widgets/app_bar.dart';
+import 'package:instagram_app/widgets/bottom_bar.dart';
+import 'package:instagram_app/widgets/posts.dart';
+import 'package:instagram_app/widgets/story_avatars.dart';
 
 
 class MainPage extends StatefulWidget {
@@ -21,32 +23,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            title: Image.asset(
-              'assets/logo.png',
-              height: 42,
-            ),
-          actions: [
-             Row(
-              children: [
-                IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                        Icons.favorite_border,
-                        color:Colors.black,
-                        size: 26,
-                    ),
-                ),
-                IconButton(
-                    onPressed: () {},
-                    icon: Image.asset('assets/icons/messenger_icon.png',
-                    height: 30,
-                    ),
-                ),
-              ],
-            )
-          ],
-        ),
+        appBar: const InstagramAppBar(),
         body: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(
@@ -104,51 +81,7 @@ class _MainPageState extends State<MainPage> {
             ],
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          items: [
-            BottomNavigationBarItem(
-              icon: Image.asset('assets/icons/home.png',
-                height: 24,
-              ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Image.asset('assets/icons/search.png',
-                height: 24,
-              ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Image.asset('assets/icons/new.png',
-                height: 24,
-              ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Image.asset('assets/icons/reels.png',
-                height: 24,
-              ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Container(
-                width: 24,
-                height: 24,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    image: AssetImage('assets/avatars/avatar1.jpg'),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              label: '',
-            ),
-          ]
-        ),
+        bottomNavigationBar: const InstagramNavBar(),
     );
   }
 }

@@ -13,9 +13,7 @@ class SubscribersStoryAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context){
     return Container(
-      // padding: const EdgeInsets.only(left: 10, right: 10),
       margin: const EdgeInsets.only(right: 5, bottom: 5),
-      // color: Colors.amber[600],
       width: 95,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -71,13 +69,11 @@ class SubscribersStoryAvatar extends StatelessWidget {
 class MyStoryAvatar extends StatelessWidget {
   const MyStoryAvatar({super.key});
 
-
   @override
   Widget build(BuildContext context){
     return Container(
       padding: const EdgeInsets.only(top: 3),
       margin: const EdgeInsets.only(right: 5, bottom: 5),
-      // color: Colors.amber[600],
       width: 93,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
