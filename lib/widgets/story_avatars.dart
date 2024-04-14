@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../theme/theme_provider.dart';
 
 class SubscribersStoryAvatar extends StatelessWidget {
   final String avatar;
@@ -11,7 +14,7 @@ class SubscribersStoryAvatar extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(right: 5, bottom: 5),
       width: 95,
@@ -43,7 +46,7 @@ class SubscribersStoryAvatar extends StatelessWidget {
                     width: 2.0,
                   ),
                   image: DecorationImage(
-                    image: AssetImage('assets/avatars/$avatar'),
+                    image: NetworkImage(avatar),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -63,14 +66,13 @@ class SubscribersStoryAvatar extends StatelessWidget {
   }
 }
 
-
-
-
 class MyStoryAvatar extends StatelessWidget {
   const MyStoryAvatar({super.key});
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
+    bool isDarkMode = Provider.of<ThemeProvider>(context).isDarkMode;
+
     return Container(
       padding: const EdgeInsets.only(top: 3),
       margin: const EdgeInsets.only(right: 5, bottom: 5),
@@ -101,7 +103,7 @@ class MyStoryAvatar extends StatelessWidget {
                   height: 26,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: const Color(0xff1273fc) ,
+                    color: const Color(0xff1273fc),
                     border: Border.all(
                       color: Colors.white,
                       width: 4.0,
@@ -117,11 +119,11 @@ class MyStoryAvatar extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 8),
-          const Text(
+          Text(
             'Your story',
             style: TextStyle(
-                fontSize: 12,
-                color: Colors.black54
+              fontSize: 12,
+              color: isDarkMode ? Colors.white60 : Colors.grey.shade800,
             ),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
@@ -131,6 +133,3 @@ class MyStoryAvatar extends StatelessWidget {
     );
   }
 }
-
-
-

@@ -1,36 +1,42 @@
 import 'package:flutter/material.dart';
 
-class InstagramNavBar extends StatelessWidget implements PreferredSizeWidget{
+import 'icon.dart';
+
+class InstagramNavBar extends StatelessWidget implements PreferredSizeWidget {
   const InstagramNavBar({super.key});
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         showSelectedLabels: false,
         showUnselectedLabels: false,
         items: [
-          BottomNavigationBarItem(
-            icon: Image.asset('assets/icons/home.png',
-              height: 24,
+          const BottomNavigationBarItem(
+            icon: ThemedSvgIcon(
+              assetPath: 'assets/icons/home.svg',
+              size: 24,
             ),
             label: '',
           ),
-          BottomNavigationBarItem(
-            icon: Image.asset('assets/icons/search.png',
-              height: 24,
+          const BottomNavigationBarItem(
+            icon: ThemedSvgIcon(
+              assetPath: 'assets/icons/search.svg',
+              size: 24,
             ),
             label: '',
           ),
-          BottomNavigationBarItem(
-            icon: Image.asset('assets/icons/new.png',
-              height: 24,
+          const BottomNavigationBarItem(
+            icon: ThemedSvgIcon(
+              assetPath: 'assets/icons/new.svg',
+              size: 24,
             ),
             label: '',
           ),
-          BottomNavigationBarItem(
-            icon: Image.asset('assets/icons/reels.png',
-              height: 24,
+          const BottomNavigationBarItem(
+            icon: ThemedSvgIcon(
+              assetPath: 'assets/icons/reels.svg',
+              size: 24,
             ),
             label: '',
           ),
@@ -48,8 +54,7 @@ class InstagramNavBar extends StatelessWidget implements PreferredSizeWidget{
             ),
             label: '',
           ),
-        ]
-    );
+        ]);
   }
 
   @override

@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
 
-class PostPhoto extends StatelessWidget{
+class PostPhoto extends StatelessWidget {
   final String photo;
 
-  const PostPhoto({
-    super.key,
-    required this.photo
-  });
+  const PostPhoto({super.key, required this.photo});
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.width,
-      child: Image.asset(
-        'assets/$photo',
+      child: Image.network(
+        photo,
         fit: BoxFit.cover,
       ),
     );

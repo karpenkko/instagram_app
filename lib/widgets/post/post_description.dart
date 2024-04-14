@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class PostDescription extends StatelessWidget{
+import '../../theme/theme_provider.dart';
+
+class PostDescription extends StatelessWidget {
   final String username;
   final String description;
   final int likes;
@@ -19,7 +22,9 @@ class PostDescription extends StatelessWidget{
   });
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
+    bool isDarkMode = Provider.of<ThemeProvider>(context).isDarkMode;
+
     return Padding(
       padding: const EdgeInsets.only(left: 10, right: 10),
       child: Column(
@@ -47,16 +52,16 @@ class PostDescription extends StatelessWidget{
           const SizedBox(height: 4),
           Text(
             'View all $comments comments',
-            style: const TextStyle(
-              color: Colors.black54,
+            style: TextStyle(
+              color: isDarkMode ? Colors.white60 : Colors.grey.shade800,
             ),
           ),
           const SizedBox(height: 2),
           Text(
             '$time $timeMeasurement ago',
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 12,
-              color: Colors.black54,
+              color: isDarkMode ? Colors.white60 : Colors.grey.shade800,
             ),
           ),
         ],
